@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float speed = 1.0F;
     public float jumpSpeed = 8.0F; 
     public float gravity = 20.0F;
+	public bool showInventory = false; 
     private Vector3 moveDirection = Vector3.zero;
 	
 	public int numFood = 0;
@@ -38,7 +39,12 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void OnGUI() {
-	   GUI.Label(new Rect(10, 10, 150, 100), foodLabel);
-           
+	   GUI.Label(new Rect(10, 10, 150, 100), foodLabel);     
+	}
+	
+	public void OnExitTile() {
+		
+		//Show the inventory
+		showInventory = true; 
 	}
 }

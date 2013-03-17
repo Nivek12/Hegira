@@ -1,15 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\network\NetworkController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\InventoryGUI.js">
     <Files>
-      <File FileName="Assets\Scripts\network\NetworkController.cs" Line="63" Column="4" />
-      <File FileName="Assets\Scripts\FPSCounter.js" Line="41" Column="21" />
-      <File FileName="Assets\Scripts\network\NetworkTransformReceiver.cs" Line="47" Column="76" />
-      <File FileName="Assets\Scripts\network\NetworkTransformSender.cs" Line="31" Column="18" />
-      <File FileName="Assets\Scripts\network\AnimationSynchronizer.cs" Line="42" Column="20" />
-      <File FileName="Assets\Scripts\network\NetworkTransform.cs" Line="47" Column="16" />
-      <File FileName="Assets\Scripts\gui_Login.cs" Line="87" Column="39" />
-      <File FileName="Assets\PlayerController.cs" Line="7" Column="29" />
+      <File FileName="Assets\Scripts\DraggableGUIElement.cs" Line="34" Column="22" />
+      <File FileName="Assets\Tile\TileTriggerController.cs" Line="16" Column="2" />
+      <File FileName="Assets\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\FoodController.cs" Line="24" Column="3" />
+      <File FileName="Assets\Standard Assets\InventoryGUI.js" Line="6" Column="36" />
+      <File FileName="Assets\Standard Assets\Inventory.js" Line="32" Column="11" />
+      <File FileName="Assets\Standard Assets\ItemController.js" Line="18" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

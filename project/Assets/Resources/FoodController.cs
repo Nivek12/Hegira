@@ -18,6 +18,7 @@ public class FoodController : MonoBehaviour {
 		//If the player collided with the food, then call the appropriate method
 		if(other.gameObject.GetComponent("PlayerController") != null) {
 			((PlayerController)other.gameObject.GetComponent(typeof(PlayerController))).onGetResource(10);
+			((ItemController)gameObject.GetComponent(typeof(ItemController))).AddToInventory();
 		}
 		
 		Destroy (this.gameObject);	
