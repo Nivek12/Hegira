@@ -4,6 +4,7 @@ you can find others ways to do this but using the same techniques i do to add it
 */
 
 var inventoryIcon:Texture2D;//this is what will be displayed in the demos On Screen GUI.
+var itemType:int; 
 var isStackable=false;//If this is true it will be stacked in the inv. if not then it wont!
 //Stacking will be added in the next update.
 var maxStack=9;//each stack can be this big.
@@ -14,11 +15,34 @@ class Item {
 	var mInventoryIcon:Texture2D;
 	var mType:int;
 	
-	function Item(inventoryIcon:Texture2D, type:int) {
-		mInventoryIcon = inventoryIcon;
-		mType = type;
-	} 
+	function UseItem() {
+	
+	}
 
+}
+
+class FoodItem extends Item {
+	
+	function FoodItem(inventoryIcon:Texture2D) {
+		mInventoryIcon = inventoryIcon;
+		mType = 1;
+	}
+	
+	function UseItem() {
+		Debug.Log("USED FOOD");
+	}
+}
+
+class HealthItem extends Item {
+	
+	function HealthItem(inventoryIcon:Texture2D) {
+		mInventoryIcon = inventoryIcon;
+		mType = 2;
+	}
+	
+	function UseItem() {
+		Debug.Log("USED HEALTH");
+	}
 }
 
 
@@ -31,9 +55,12 @@ function AddToInventory(){//When you click an item
 		//a game, you make a function that picks up an item within the player script. and then have the inventory
 		//referneced from its own variable. OR since the playerscript would be attached to the inv i suggest you
 		//do GetComponent(Inventory).AddItem, This way multiple players can have inventorys.
-		Debug.Log("mouseDown");
+		if(itemType == 1) {
+			playersinv.AddItem(new FoodItem(inventoryIcon));
+		} else if(itemType == 2) {
+			playersinv.AddItem(new HealthItem(inventoryIcon));
+		}
 		
-		playersinv.AddItem(new Item(inventoryIcon, 1));
 		MoveMeToThePlayer(playersinv.transform);//moves the object, to the player
 	
 }

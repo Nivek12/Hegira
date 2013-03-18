@@ -2,13 +2,16 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\InventoryGUI.js">
     <Files>
-      <File FileName="Assets\Scripts\DraggableGUIElement.cs" Line="34" Column="22" />
-      <File FileName="Assets\Tile\TileTriggerController.cs" Line="16" Column="2" />
-      <File FileName="Assets\PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\FoodController.cs" Line="24" Column="3" />
-      <File FileName="Assets\Standard Assets\InventoryGUI.js" Line="6" Column="36" />
-      <File FileName="Assets\Standard Assets\Inventory.js" Line="32" Column="11" />
-      <File FileName="Assets\Standard Assets\ItemController.js" Line="18" Column="6" />
+      <File FileName="Assets\Scripts\swordController.cs" Line="18" Column="4" />
+      <File FileName="Assets\Scripts\DraggableGUIElement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Food\FoodController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Health\HealthController.cs" Line="22" Column="4" />
+      <File FileName="Assets\Scripts\CameraController.cs" Line="16" Column="76" />
+      <File FileName="Assets\Standard Assets\Inventory.js" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\InventoryGUI.js" Line="69" Column="27" />
+      <File FileName="Assets\Standard Assets\ItemController.js" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" Line="1" Column="1" />
+      <File FileName="Assets\Outpost\OutpostController.cs" Line="24" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

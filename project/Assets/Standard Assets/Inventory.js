@@ -15,7 +15,6 @@ function AddItem(item:Item){//Add an item to the inventory.
 	Contents=newContents.ToBuiltin(Item);
 }
 function RemoveItem(item:Item){//Removed an item from the inventory.
-	print("made it here");
 	var newContents=new Array(Contents);
 	var index=0;
 	var shouldend=false;

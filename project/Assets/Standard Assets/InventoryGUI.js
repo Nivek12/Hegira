@@ -11,6 +11,8 @@ var lastUpdate=0.0;//last time we updated the display.
 var UpdatedList:Item[];
 var associatedInventory:Inventory;
 
+var showInventory : boolean = false;
+
 function UpdateInventoryList(){
 	UpdatedList=associatedInventory.Contents;
 }
@@ -32,33 +34,31 @@ function OnGUI(){
 	GUI.Label(Rect (0, 110, 400, 20), "ItemIconSize Y");
 	//THIS IS WHERE THE EDITING STUFF ENDS> FROM HERE BEFORE YOU would need.
 	
-	
-	
-	
-	
-	
-	
 	var currentX=windowPosition.x;//where to put the first items
 	var currentY=windowPosition.y;
-	//Draw the backdrop in the windowposition and the size of the windowsize.
-	GUI.DrawTexture(Rect(windowPosition.x,windowPosition.y,windowSize.x,windowSize.y),backDrop,ScaleMode.StretchToFill);
-	for(var i:Item in UpdatedList){//we start a loop for whats in our list. You could 
-	//we know that all objects in this list are items, cus we
-	//will make sure nothing else can go in here, RIGHT? :P
-	//directly call accocialtedInventory.Contents but i prefer not to since its more work for you and the pc.
-		//I use a button since its easier to be able to click it and then made a drop down menu to delete or move
-		if(GUI.Button(Rect(currentX,currentY,itemIconSize.x,itemIconSize.y), i.mInventoryIcon)){
-			associatedInventory.RemoveItem(i);//Remove the item from the list, well its transform neways
-			//item.BeDropped();//Drops the item.
-			lastUpdate=0.0;//Set the lastupdate to 0 to allow the list to update.
-		}
-		currentX+=itemIconSize.x;
-		if(currentX+itemIconSize.x>windowPosition.x+windowSize.x){
-		//if the next item icon will be to large for the window.....
-			currentX=windowPosition.x;//we move it back to its startpoint
-			currentY+=itemIconSize.y;//and down a row.
-			if(currentY+itemIconSize.y>windowPosition.y+windowSize.y){//if the row is down to far. we quit the loop
-				return;
+	
+	if(showInventory) {
+		//Draw the backdrop in the windowposition and the size of the windowsize.
+		GUI.DrawTexture(Rect(windowPosition.x,windowPosition.y,windowSize.x,windowSize.y),backDrop,ScaleMode.StretchToFill);
+		for(var i:Item in UpdatedList){//we start a loop for whats in our list. You could 
+		//we know that all objects in this list are items, cus we
+		//will make sure nothing else can go in here, RIGHT? :P
+		//directly call accocialtedInventory.Contents but i prefer not to since its more work for you and the pc.
+			//I use a button since its easier to be able to click it and then made a drop down menu to delete or move
+			if(GUI.Button(Rect(currentX,currentY,itemIconSize.x,itemIconSize.y), i.mInventoryIcon)){
+			    i.UseItem();
+				associatedInventory.RemoveItem(i);//Remove the item from the list, well its transform neways
+				//item.BeDropped();//Drops the item.
+				lastUpdate=0.0;//Set the lastupdate to 0 to allow the list to update.
+			}
+			currentX+=itemIconSize.x;
+			if(currentX+itemIconSize.x>windowPosition.x+windowSize.x){
+			//if the next item icon will be to large for the window.....
+				currentX=windowPosition.x;//we move it back to its startpoint
+				currentY+=itemIconSize.y;//and down a row.
+				if(currentY+itemIconSize.y>windowPosition.y+windowSize.y){//if the row is down to far. we quit the loop
+					return;
+				}
 			}
 		}
 	}
@@ -70,4 +70,12 @@ function FixedUpdate(){//I will update the display inventory here.
 		lastUpdate=Time.time+updateListDelay;
 		UpdateInventoryList();
 	}
+}
+
+function ShowInventory() {
+	showInventory = true;
+}
+
+function CloseInventory() {
+	showInventory = false;
 }
