@@ -11,6 +11,8 @@ var lastUpdate=0.0;//last time we updated the display.
 var UpdatedList:Item[];
 var associatedInventory:Inventory;
 
+
+
 var showInventory : boolean = false;
 
 function UpdateInventoryList(){
@@ -40,15 +42,11 @@ function OnGUI(){
 	if(showInventory) {
 		//Draw the backdrop in the windowposition and the size of the windowsize.
 		GUI.DrawTexture(Rect(windowPosition.x,windowPosition.y,windowSize.x,windowSize.y),backDrop,ScaleMode.StretchToFill);
-		for(var i:Item in UpdatedList){//we start a loop for whats in our list. You could 
-		//we know that all objects in this list are items, cus we
-		//will make sure nothing else can go in here, RIGHT? :P
-		//directly call accocialtedInventory.Contents but i prefer not to since its more work for you and the pc.
-			//I use a button since its easier to be able to click it and then made a drop down menu to delete or move
+		for(var i:Item in UpdatedList){//we start a loop for whats in our list.
+
 			if(GUI.Button(Rect(currentX,currentY,itemIconSize.x,itemIconSize.y), i.mInventoryIcon)){
 			    i.UseItem();
-				associatedInventory.RemoveItem(i);//Remove the item from the list, well its transform neways
-				//item.BeDropped();//Drops the item.
+				associatedInventory.RemoveItem(i);//Remove the item from the list.
 				lastUpdate=0.0;//Set the lastupdate to 0 to allow the list to update.
 			}
 			currentX+=itemIconSize.x;
@@ -61,6 +59,16 @@ function OnGUI(){
 				}
 			}
 		}
+		
+		//Set up the player equip window
+		GUI.DrawTexture(Rect(windowPosition.x + 300,windowPosition.y,windowSize.x,windowSize.y),backDrop,ScaleMode.StretchToFill);
+		
+		//If there is an something equiped in armor, then show it. 
+		if(GUI.Button(Rect(windowPosition.x + 332 ,windowPosition.y,itemIconSize.x,itemIconSize.y), UpdatedList[0].mInventoryIcon)) {
+		
+		}
+		
+		
 	}
 }
 

@@ -45,6 +45,20 @@ class HealthItem extends Item {
 	}
 }
 
+class ChestplateItem extends Item {
+	
+	function ChestplateItem(inventoryIcon:Texture2D) {
+		mInventoryIcon = inventoryIcon;
+		mType = 3;
+	}
+	
+	function UseItem() {
+		Debug.Log("USED Armor");
+		//Equip the item
+		
+	}
+}
+
 
 function AddToInventory(){//When you click an item
 	//im going to check if its collider is active. since i know i deactivate it when
@@ -59,9 +73,9 @@ function AddToInventory(){//When you click an item
 			playersinv.AddItem(new FoodItem(inventoryIcon));
 		} else if(itemType == 2) {
 			playersinv.AddItem(new HealthItem(inventoryIcon));
+		} else if(itemType == 3) {
+			playersinv.AddItem(new ChestplateItem(inventoryIcon));
 		}
-		
-		MoveMeToThePlayer(playersinv.transform);//moves the object, to the player
 	
 }
 
