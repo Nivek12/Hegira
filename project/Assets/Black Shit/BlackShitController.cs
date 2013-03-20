@@ -7,6 +7,7 @@ public class BlackShitController : MonoBehaviour {
 	private Vector3 destination; // final destination of all the shit
 	public float moveSpeed = 6; // current move speed
 	public float maxSpeed = 6; //max speed
+	public float minSpeed = 4; // minimum/beginning speed  of the shit
 	public float acceleration = 0.5f; // how fast the shit accelerates to max speed
 	
 	void Start () 
@@ -16,12 +17,17 @@ public class BlackShitController : MonoBehaviour {
 	
 	void Update () {
 		transform.position += (destination - transform.position).normalized * moveSpeed * Time.deltaTime; // takes the direction of movement and multiplies by the move speed
-		if (moveSpeed <= maxSpeed)
+		if (moveSpeed <= maxSpeed && moveSpeed != 0)
 			moveSpeed += acceleration * Time.deltaTime;
 	}
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.name == "BlackShitFrame") // if collides with the shit frame, lowers the speed. could be set to 0 for the pseudo turn based part of the game
-			moveSpeed = 4;
+		if (other.name == "BlackShitFrame") // if collides with the shit frame, sets speed to 0. 
+			moveSpeed = 0;
+	}
+	void OnTriggerExit (Collider other)
+	{
+		if (other.name == "BlackShitFrame") // when frame begins to move again, allow shit to move again.
+			moveSpeed = minSpeed;
 	}
 }
