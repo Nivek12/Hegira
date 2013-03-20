@@ -1,30 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Black Shit\BlackShitFrameController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player\PlayerController.cs">
     <Files>
-<<<<<<< HEAD
-      <File FileName="Assets\Scripts\swordController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DraggableGUIElement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\ItemController.js" Line="31" Column="19" />
+      <File FileName="Assets\Standard Assets\InventoryGUI.js" Line="93" Column="20" />
+      <File FileName="Assets\Player\PlayerController.cs" Line="87" Column="24" />
       <File FileName="Assets\Resources\Food\FoodController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Health\HealthController.cs" Line="10" Column="2" />
-      <File FileName="Assets\Scripts\CameraController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Inventory.js" Line="21" Column="31" />
-      <File FileName="Assets\Standard Assets\InventoryGUI.js" Line="14" Column="1" />
-      <File FileName="Assets\Standard Assets\ItemController.js" Line="58" Column="3" />
-      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" Line="1" Column="1" />
-      <File FileName="Assets\Outpost\OutpostController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Chestplate\ChestplateController.cs" Line="19" Column="66" />
-=======
-      <File FileName="Assets\Black Shit\BlackShitFrameController.cs" Line="11" Column="79" />
-      <File FileName="Assets\Outpost\OutpostController.cs" Line="24" Column="15" />
-      <File FileName="Assets\Tile\TileController.cs" Line="14" Column="43" />
-      <File FileName="Assets\Player\PlayerController.cs" Line="17" Column="20" />
-      <File FileName="Assets\Standard Assets\Inventory.js" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\InventoryGUI.js" Line="69" Column="27" />
-      <File FileName="Assets\Standard Assets\ItemController.js" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" Line="1" Column="1" />
-      <File FileName="Assets\Black Shit\BlackShitController.cs" Line="24" Column="153" />
->>>>>>> 980bb7687605b9ed6255b276c5fc758b63c550b1
+      <File FileName="Assets\Standard Assets\Inventory.js" Line="24" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

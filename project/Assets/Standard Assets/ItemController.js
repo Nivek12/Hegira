@@ -23,13 +23,21 @@ class Item {
 
 class FoodItem extends Item {
 	
+	var healAmount:int;
+	
 	function FoodItem(inventoryIcon:Texture2D) {
 		mInventoryIcon = inventoryIcon;
 		mType = 1;
+		healAmount = 10;
 	}
 	
 	function UseItem() {
 		Debug.Log("USED FOOD");
+		var player = GameObject.FindWithTag("Player");
+		
+		if(player != null) {
+			player.GetComponent("PlayerController").OnHeal(healAmount);
+		}
 	}
 }
 
@@ -47,6 +55,8 @@ class HealthItem extends Item {
 
 class ChestplateItem extends Item {
 	
+	var defense:int = 3;
+	
 	function ChestplateItem(inventoryIcon:Texture2D) {
 		mInventoryIcon = inventoryIcon;
 		mType = 3;
@@ -54,8 +64,7 @@ class ChestplateItem extends Item {
 	
 	function UseItem() {
 		Debug.Log("USED Armor");
-		//Equip the item
-		
+
 	}
 }
 

@@ -11,9 +11,15 @@ var lastUpdate=0.0;//last time we updated the display.
 var UpdatedList:Item[];
 var associatedInventory:Inventory;
 
-
+//Player equip window variables
+var currentArmour:Item;
 
 var showInventory : boolean = false;
+
+
+function Start() {
+	currentArmour = null;
+}
 
 function UpdateInventoryList(){
 	UpdatedList=associatedInventory.Contents;
@@ -48,6 +54,11 @@ function OnGUI(){
 			    i.UseItem();
 				associatedInventory.RemoveItem(i);//Remove the item from the list.
 				lastUpdate=0.0;//Set the lastupdate to 0 to allow the list to update.
+				
+				//In case the item is an armour piece, display it in the player equip window
+				if(i.mType == 3) {
+					SwapArmour(i);
+				}
 			}
 			currentX+=itemIconSize.x;
 			if(currentX+itemIconSize.x>windowPosition.x+windowSize.x){
@@ -64,14 +75,33 @@ function OnGUI(){
 		GUI.DrawTexture(Rect(windowPosition.x + 300,windowPosition.y,windowSize.x,windowSize.y),backDrop,ScaleMode.StretchToFill);
 		
 		//If there is an something equiped in armor, then show it. 
-		if(GUI.Button(Rect(windowPosition.x + 332 ,windowPosition.y,itemIconSize.x,itemIconSize.y), UpdatedList[0].mInventoryIcon)) {
+		if(currentArmour != null) {
+			if(GUI.Button(Rect(windowPosition.x + 332 ,windowPosition.y,itemIconSize.x,itemIconSize.y), currentArmour.mInventoryIcon)) {
+				UnequipArmour();
+			}
 		
 		}
-		
-		
 	}
 }
 
+function SwapArmour(newArmour:Item) {
+	var temp:Item = currentArmour;
+	currentArmour = newArmour;
+	
+	GetComponent("PlayerController").SetDefense(currentArmour.defense);
+							
+    if(temp != null) {
+ 	   associatedInventory.AddItem(temp);
+    } 
+}
+
+function UnequipArmour() {
+
+	//Add the armour back into invenotry and unequip it
+	associatedInventory.AddItem(currentArmour);
+	currentArmour = null;
+	GetComponent("PlayerController").SetDefense(0);
+}
 
 function FixedUpdate(){//I will update the display inventory here.
 	if(Time.time>lastUpdate){

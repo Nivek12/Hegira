@@ -12,7 +12,11 @@ public class PlayerController : MonoBehaviour {
     private Vector3 moveDirection = Vector3.zero;
 	
 	public int numFood = 0;
+	public int mDefense = 0;
+	public int mHealth = 50;
+	
 	public string foodLabel = "FOOD: 0";
+	public string healthLabel = "HEALTH: 50";
  
     void Update() {
         CharacterController controller = GetComponent<CharacterController>();
@@ -67,13 +71,39 @@ public class PlayerController : MonoBehaviour {
 	    }
     }
 	
+	public void SetDefense(int defense) {
+		Debug.Log("ADDED ARMOR " + defense);
+		mDefense = defense;
+	}
+	
+	public void OnHeal(int healed) {
+		
+		if((mHealth + healed) > 100) {
+			mHealth = 100;	
+		} else {
+			mHealth += healed;	
+		}
+		
+		healthLabel = "HEALTH: " + mHealth;
+	}
+	
+	public void OnDamage(int damage) {
+		
+		//Only hurt the player if the damage dealt is greater than their defense
+		if(damage > mDefense) {
+			mHealth = mHealth - (damage-mDefense);	
+		}
+		
+		//TODO check if the player is dead
+	}
+	
 	public void onGetResource(int amount) {
 		numFood += amount;
 		foodLabel = "FOOD: " + numFood;
 	}
 	
 	void OnGUI() {
-	   GUI.Label(new Rect(10, 10, 150, 100), foodLabel);     
+	   GUI.Label(new Rect(200, 10, 150, 100), healthLabel);     
 	}
 	
 }
