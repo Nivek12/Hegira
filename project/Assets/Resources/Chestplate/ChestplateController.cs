@@ -18,8 +18,9 @@ public class ChestplateController : MonoBehaviour {
 		//If the player collided with the food, then call the appropriate method
 		if(other.gameObject.GetComponent("PlayerController") != null) {
 			((ItemController)gameObject.GetComponent(typeof(ItemController))).AddToInventory();
+			Destroy (this.gameObject);	
 		}
 		
-		Destroy (this.gameObject);	
+		
 	}
 }

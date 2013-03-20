@@ -94,6 +94,8 @@ public class PlayerController : MonoBehaviour {
 			mHealth = mHealth - (damage-mDefense);	
 		}
 		
+		healthLabel = "HEALTH: " + mHealth;
+		
 		//TODO check if the player is dead
 	}
 	

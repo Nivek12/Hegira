@@ -19,8 +19,9 @@ public class FoodController : MonoBehaviour {
 		if(other.gameObject.GetComponent("PlayerController") != null) {
 			((PlayerController)other.gameObject.GetComponent(typeof(PlayerController))).onGetResource(10);
 			((ItemController)gameObject.GetComponent(typeof(ItemController))).AddToInventory();
+			Destroy (this.gameObject);	
 		}
 		
-		Destroy (this.gameObject);	
+		
 	}
 }
