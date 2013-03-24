@@ -1,8 +1,9 @@
 //This type of inventory display will be a bag. similair to WoW.
 var backDrop:Texture2D;
+var equipTexture:Texture2D;
 var windowPosition:Vector2=Vector2(200,200);//where on the screen the window will appear.
 //this can easily be and should be updated on the fly incase the screen size changes or what not.
-var windowSize:Vector2=Vector2(300.0,300.0);//the size of the window the bag will be displayed.
+var windowSize:Vector2=Vector2(600.0,800.0);//the size of the window the bag will be displayed.
 var itemIconSize:Vector2=Vector2(32.0,32.0);//The size of the item icons
 var updateListDelay=0.0;//This will be used to updated the inventory on screen, rather then
 //updating it every time OnGUI is called. if you prefer you can directly get what in the list. but i
@@ -72,11 +73,11 @@ function OnGUI(){
 		}
 		
 		//Set up the player equip window
-		GUI.DrawTexture(Rect(windowPosition.x + 300,windowPosition.y,windowSize.x,windowSize.y),backDrop,ScaleMode.StretchToFill);
+		GUI.DrawTexture(Rect(windowPosition.x + 300,windowPosition.y,windowSize.x,windowSize.y),equipTexture,ScaleMode.StretchToFill);
 		
 		//If there is an something equiped in armor, then show it. 
 		if(currentArmour != null) {
-			if(GUI.Button(Rect(windowPosition.x + 332 ,windowPosition.y,itemIconSize.x,itemIconSize.y), currentArmour.mInventoryIcon)) {
+			if(GUI.Button(Rect(windowPosition.x + 362 ,windowPosition.y + 53,itemIconSize.x,itemIconSize.y), currentArmour.mInventoryIcon)) {
 				UnequipArmour();
 			}
 		
