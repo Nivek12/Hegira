@@ -5,7 +5,7 @@ using System;
 using SmartFoxClientAPI;
 using SmartFoxClientAPI.Data;
 
-public class RemotePlayercontr : MonoBehaviour {
+public class RemotePlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -18,12 +18,13 @@ public class RemotePlayercontr : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter(Collider collider) {
-		Debug.Log("HURT");
+		Debug.Log("REMOTE PLAYER HURT");
 		//If the collision belongs to the player's weapons
 		if(collider.gameObject.GetComponent("WeaponController") != null) {
 			if(((WeaponController)collider.gameObject.GetComponent(typeof(WeaponController))).IsAttacking()) {
 				int damage = ((WeaponController)collider.gameObject.GetComponent(typeof(WeaponController))).GetDamage();
 				SendDamage(damage);
+				Debug.Log("SENT HURT");
 			}
 		}
 	}

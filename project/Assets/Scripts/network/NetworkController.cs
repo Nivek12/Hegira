@@ -100,6 +100,17 @@ public class NetworkController : MonoBehaviour {
 			case "d": //"d" - for damage message received
 				DamageLocalPlayer(data.GetNumber("amount"));
 				break;
+			case "k": //"k" - for player killed
+				KillRemotePlayer();
+				break;
+		}
+	}
+	
+	private void KillRemotePlayer() {
+		GameObject remotePlayer = GameObject.FindGameObjectWithTag("RemotePlayer");
+		
+		if(remotePlayer != null) {
+			Destroy (remotePlayer);	
 		}
 	}
 	

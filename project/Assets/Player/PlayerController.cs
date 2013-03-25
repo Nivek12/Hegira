@@ -1,6 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
+using System;
+using SmartFoxClientAPI;
+using SmartFoxClientAPI.Data;
+
 public class PlayerController : MonoBehaviour {
 
     //Variables
@@ -89,8 +93,14 @@ public class PlayerController : MonoBehaviour {
 		
 		healthLabel = "HEALTH: " + mHealth;
 		
-		//TODO check if the player is dead
+		//If the player is dead then destroy the object and notify other players
 		if(mHealth <= 0) {
+			
+			SmartFoxClient client = NetworkController.GetClient();
+			SFSObject data = new SFSObject();
+			data.Put("_cmd", "d");  //We put _cmd = "k" for a killed message
+			client.SendObject(data);
+			
 			Destroy(this.gameObject);	
 		}
 	}

@@ -35,15 +35,17 @@ public class EnemyController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if((Vector3.Distance(transform.position,target.position)<maxRange) && (Vector3.Distance(transform.position,target.position)>minRange)){
-			transform.LookAt(target);
-			transform.Translate(Vector3.forward * enemySpeed);
-		}
-		
-		//Attack the player
-		if(Vector3.Distance(transform.position,target.position) < attackRange && (Time.time>lastAttack)) {
-			lastAttack = Time.time + attackDelay;
-			((PlayerController)player.GetComponent(typeof(PlayerController))).OnDamage(attackPower);
+		if(target != null) {
+			if((Vector3.Distance(transform.position,target.position)<maxRange) && (Vector3.Distance(transform.position,target.position)>minRange)){
+				transform.LookAt(target);
+				transform.Translate(Vector3.forward * enemySpeed);
+			}
+			
+			//Attack the player
+			if(Vector3.Distance(transform.position,target.position) < attackRange && (Time.time>lastAttack)) {
+				lastAttack = Time.time + attackDelay;
+				((PlayerController)player.GetComponent(typeof(PlayerController))).OnDamage(attackPower);
+			}
 		}
 		
 
