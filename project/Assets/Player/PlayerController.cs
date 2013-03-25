@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour {
 			
 			SmartFoxClient client = NetworkController.GetClient();
 			SFSObject data = new SFSObject();
-			data.Put("_cmd", "d");  //We put _cmd = "k" for a killed message
+			data.Put("_cmd", "k");  //We put _cmd = "k" for a killed message
 			client.SendObject(data);
 			
 			Destroy(this.gameObject);	
