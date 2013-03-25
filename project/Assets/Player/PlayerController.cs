@@ -37,13 +37,6 @@ public class PlayerController : MonoBehaviour {
         //Making the character move
         controller.Move(moveDirection * Time.deltaTime);
 		
-		if(Input.GetMouseButtonDown(0)){
-    		//Attack
-			renderer.material.color = Color.yellow;
-		} else if(!Input.GetMouseButtonDown(0)) {
-			renderer.material.color = Color.white;
-		}
-		
 		//-----------------------------------------Make the player face the mouse-----------------------------
 		// Generate a plane that intersects the transform's position with an upwards normal.
    		var playerPlane = new Plane(Vector3.up, transform.position);
@@ -97,6 +90,9 @@ public class PlayerController : MonoBehaviour {
 		healthLabel = "HEALTH: " + mHealth;
 		
 		//TODO check if the player is dead
+		if(mHealth <= 0) {
+			Destroy(this.gameObject);	
+		}
 	}
 	
 	public void onGetResource(int amount) {

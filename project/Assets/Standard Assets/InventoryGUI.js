@@ -1,6 +1,10 @@
+//hacked in weapon icon
+var weaponIcon:Texture2D;
+
 //This type of inventory display will be a bag. similair to WoW.
 var backDrop:Texture2D;
 var equipTexture:Texture2D;
+
 var windowPosition:Vector2=Vector2(200,200);//where on the screen the window will appear.
 //this can easily be and should be updated on the fly incase the screen size changes or what not.
 var windowSize:Vector2=Vector2(600.0,800.0);//the size of the window the bag will be displayed.
@@ -14,12 +18,14 @@ var associatedInventory:Inventory;
 
 //Player equip window variables
 var currentArmour:Item;
+var currentWeapon:Item;
 
 var showInventory : boolean = false;
 
 
 function Start() {
 	currentArmour = null;
+	currentWeapon = null;
 }
 
 function UpdateInventoryList(){
@@ -60,6 +66,11 @@ function OnGUI(){
 				if(i.mType == 3) {
 					SwapArmour(i);
 				}
+				
+				//If the item is a weapon, then equip it
+				if(i.mType == 4) {
+					SwapWeapon(i);
+				}
 			}
 			currentX+=itemIconSize.x;
 			if(currentX+itemIconSize.x>windowPosition.x+windowSize.x){
@@ -82,6 +93,13 @@ function OnGUI(){
 			}
 		
 		}
+		
+		//If a weapon is equipped, show it
+		if(true) {
+			
+			//For now let's just make the weapon a hacked in necessary unequippable thing
+			GUI.Button(Rect(windowPosition.x + 305 ,windowPosition.y + 87,itemIconSize.x,itemIconSize.y), weaponIcon);
+		}
 	}
 }
 
@@ -94,6 +112,18 @@ function SwapArmour(newArmour:Item) {
     if(temp != null) {
  	   associatedInventory.AddItem(temp);
     } 
+}
+
+function SwapWeapon(newWeapon:Item) {
+	var temp:Item = currentWeapon;
+	currentWeapon = newWeapon;
+	
+	GetComponent("PlayerController").SetAttack(currentWeapon.attack);
+	
+	if(temp != null) {
+ 	   associatedInventory.AddItem(temp);
+    }
+	
 }
 
 function UnequipArmour() {

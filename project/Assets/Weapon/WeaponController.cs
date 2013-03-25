@@ -16,7 +16,7 @@ public class WeaponController : MonoBehaviour {
 		
 		if(Input.GetMouseButtonDown(0)){
     		//Attack
-			animation.Play("test2");
+			animation.Play();
 			isAttacking = true;
 		} else if(!Input.GetMouseButtonDown(0)) {
 			

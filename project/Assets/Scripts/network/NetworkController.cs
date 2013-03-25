@@ -97,7 +97,15 @@ public class NetworkController : MonoBehaviour {
 			case "a": // "a" - for animation message received
 				SendAnimationMessageToRemotePlayerObject(data, fromUser);
 				break;
+			case "d": //"d" - for damage message received
+				DamageLocalPlayer(data.GetNumber("amount"));
+				break;
 		}
+	}
+	
+	private void DamageLocalPlayer(double damage) {
+		GameObject player = GameObject.Find("localPlayer");
+		((PlayerController)player.GetComponent(typeof(PlayerController))).OnDamage((int)damage);
 	}
 	
 	private void SendTransformToRemotePlayerObject(SFSObject data, User fromUser) {

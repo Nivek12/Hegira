@@ -68,6 +68,20 @@ class ChestplateItem extends Item {
 	}
 }
 
+class PipeItem extends Item {
+	
+	var attack:int = 10;
+	
+	function PipeItem(inventoryIcon:Texture2D) {
+		mInventoryIcon = inventoryIcon;
+		mType = 4;
+	}
+	
+	function UseItem() {
+	
+	}
+}
+
 
 function AddToInventory(){//When you click an item
 	//im going to check if its collider is active. since i know i deactivate it when
@@ -84,6 +98,8 @@ function AddToInventory(){//When you click an item
 			playersinv.AddItem(new HealthItem(inventoryIcon));
 		} else if(itemType == 3) {
 			playersinv.AddItem(new ChestplateItem(inventoryIcon));
+		} else if(itemType == 4) {
+			playersinv.AddItem(new PipeItem(inventoryIcon));
 		}
 	
 }

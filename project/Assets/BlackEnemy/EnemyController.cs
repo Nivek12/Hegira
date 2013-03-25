@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour {
 	void Start () {
 		
 		maxRange = 100.0F;
-		minRange = 1.0F;
+		minRange = 0.5F;
 		attackRange = 2.0F;
 		attackPower = 4;
 		lastAttack = 0.0;
