@@ -17,12 +17,14 @@ public class EnemyController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		maxRange = 100.0F;
+		this.renderer.material.color = Color.red;
+		
+		maxRange = 4.0F;
 		minRange = 0.5F;
 		attackRange = 2.0F;
 		attackPower = 4;
 		lastAttack = 0.0;
-		enemySpeed = 0.05F;
+		enemySpeed = 0.02F;
 		enemyHealth = 20;
 		
 		player = GameObject.FindGameObjectWithTag("Player");

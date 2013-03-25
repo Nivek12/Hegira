@@ -7,6 +7,7 @@ public class HegiraController : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		this.renderer.material.color = Color.red;
 		showLaunch = false;
 	}
 	
@@ -43,5 +44,10 @@ public class HegiraController : MonoBehaviour {
 			
 		}
 		
+	}
+	
+	void Open()
+	{
+		this.renderer.material.color = Color.green;
 	}
 }

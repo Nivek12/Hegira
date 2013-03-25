@@ -7,6 +7,8 @@ public class OutpostController : MonoBehaviour {
 	public GameObject FriendEmitter;
 	public GameObject TradeEmitter;
 	
+	private GameObject[] openList;
+	
 	double emitLength = 10;
 	
 	bool hasPlayer = false;
@@ -52,6 +54,15 @@ public class OutpostController : MonoBehaviour {
 			((InventoryGUI)other.gameObject.GetComponent(typeof(InventoryGUI))).ShowInventory();
 			hasPlayer = true;
 		}
+		
+		if(other.gameObject.name == "localPlayer")
+		{
+			Debug.Log (other);
+			openList = GameObject.FindGameObjectsWithTag(this.tag);
+			for(int i = 0; i < openList.Length; i++)
+				openList[i].SendMessage("Open",SendMessageOptions.DontRequireReceiver);
+		}
+	
 	}
 	
 	void OnTriggerExit(Collider other) {

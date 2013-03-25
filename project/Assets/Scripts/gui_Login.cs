@@ -9,7 +9,7 @@ public class gui_Login : MonoBehaviour {
  
 	// smartFox variables
 	private SmartFoxClient smartFox;
-	private string serverIP = "192.168.2.7";
+	private string serverIP = "25.92.152.67";
 	private int serverPort = 9339;				// default = 9339
 	public string zone = "city";
 	public bool debug = true;
